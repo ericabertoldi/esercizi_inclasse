@@ -1,15 +1,21 @@
-//Dato in ingresso da riga di comando un array, stamparlo in ordine inverso
+// Dato in ingresso un array, stamparlo in ordine inverso
 
 #include <iostream>
 using namespace std;
-
-int main (int argc, const char *argv[])
+int main()
 {
-    for (int i=argc-1; i>=1; i--)
-    {
-        cout<<argv[i];
+    int N;
+    int* num = new int[N];
+    cout<<"insert length"<<endl;
+    cin>>N;
+    cout << "insert numbers" << endl;
+    for (int i = 0; i < N; i++) {
+        cin >> num[i];
     }
-    cout<<endl;
-    
-    return 0;
+
+    for (int i = N - 1; i >= 0; i--) {
+        cout << num[i];
+    }
+
+    delete[] num;
 }
