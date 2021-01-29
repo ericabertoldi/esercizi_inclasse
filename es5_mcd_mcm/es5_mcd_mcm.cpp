@@ -8,23 +8,40 @@ using namespace std;
 int MCD(int x, int y)
 {
     int min;
-    int mcd=1;
+    int mcd = 1;
     if (x < y) {
         min = x;
-    } else min = y;
-    
-    for (int i = min ; i > 0; --i) {
-        if ((x % i) == 0 && (y % i) == 0) {
+    } else
+        min = y;
+
+    for (int i = min; i > 0; --i) {
+        if ((x % i == 0) && (y % i == 0)) {
             mcd = i;
+            break;
         }
     }
     return mcd;
+}
+
+int mcm(int x, int y)
+{
+    int mcm = 1;
+    int max = (x > y) ? x : y;
+    for (int j = max; j <= x * y; j += max) {
+        if ((j % x == 0) && (j % y == 0)) {
+            mcm = j;
+            break;
+        }
+    }
+    return mcm;
 }
 
 int main()
 {
     int a, b;
     cout << "inserire numeri" << endl;
-    cin >> a, b;
+    cin >> a;
+    cin >> b;
     cout << "MCD " << MCD(a, b) << endl;
+    cout << "mcm " << mcm(a, b) << endl;
 }
